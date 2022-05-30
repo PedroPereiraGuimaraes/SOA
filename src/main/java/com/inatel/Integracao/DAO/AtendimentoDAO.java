@@ -10,12 +10,12 @@ public class AtendimentoDAO extends ConnectionDAO {
 
     public void inserirAtendimento(Atendimento atendimento) {
         connectToDB();
-        String sql = "INSERT INTO funcionario (nomePaciente,idPaciente,idDentista,dataAtendimento,horaAtendimento,procedimento) values(?,?,?,?,?,?)";
+        String sql = "INSERT INTO funcionario (nomePaciente,idPaciente,idFuncionario,dataAtendimento,horaAtendimento,procedimento) values(?,?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, atendimento.getNomePaciente());
             pst.setString(2, atendimento.getIdPaciente());
-            pst.setString(3, atendimento.getIdDentista());
+            pst.setString(3, atendimento.getIdFuncionario());
             pst.setString(3, atendimento.getData());
             pst.setInt(3, atendimento.getHora());
             pst.setString(6, atendimento.getProcedimento());

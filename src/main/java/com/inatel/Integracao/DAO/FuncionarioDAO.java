@@ -11,15 +11,14 @@ public class FuncionarioDAO extends ConnectionDAO {
 
     public boolean inserirFuncionario(Funcionario funcionario) {
         connectToDB();
-        String sql = "INSERT INTO funcionario (nome,funcao,horarioInicio,horarioFim,especialidade,cra) values(?,?,?,?,?,?)";
+        String sql = "INSERT INTO funcionarios (nome,funcao,especialidade,cra,Empresa_idEmpresa) values(?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, funcionario.getNome());
             pst.setString(2, funcionario.getFuncao());
-            pst.setString(3, funcionario.getHorarioInicio());
-            pst.setString(3, funcionario.getHorarioFim());
-            pst.setString(5, funcionario.getEspecialidade());
-            pst.setString(6, funcionario.getCra());
+            pst.setString(3, funcionario.getEspecialidade());
+            pst.setString(4, funcionario.getCra());
+            pst.setString(5, funcionario.getEmpresa());
             pst.execute();
             sucesso = true;
         } catch(SQLException exc) {

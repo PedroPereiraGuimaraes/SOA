@@ -4,15 +4,15 @@ public class Atendimento {
 
     private String nomePaciente;
     private String idPaciente;
-    private String idDentista;
+    private String idFuncionario;
     private String data;
     private int hora;
     private String procedimento;
 
-    public Atendimento(String nomePaciente, String idPaciente, String idDentista, String data, int hora, String procedimento) {
+    public Atendimento(String nomePaciente, String idPaciente, String idFuncionario, String data, int hora, String procedimento) {
         this.nomePaciente = nomePaciente;
         this.idPaciente = idPaciente;
-        this.idDentista = idDentista;
+        this.idFuncionario = idFuncionario;
         this.data = data;
         this.hora = hora;
         this.procedimento = procedimento;
@@ -26,8 +26,8 @@ public class Atendimento {
         return idPaciente;
     }
 
-    public String getIdDentista() {
-        return idDentista;
+    public String getIdFuncionario() {
+        return idFuncionario;
     }
 
     public String getData() {

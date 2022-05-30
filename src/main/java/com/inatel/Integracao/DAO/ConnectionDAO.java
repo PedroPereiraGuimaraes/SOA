@@ -16,7 +16,7 @@ public abstract class ConnectionDAO {
     Statement st; //declaração(query) - código em sql
     ResultSet rs; //resposta do banco
 
-    String database = "integracao1";
+    String database = "odonto";
     String url = "jdbc:mysql://127.0.0.1:3306/" + database + "?useTimezone=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
     String user = "root";
     String password = "Root";

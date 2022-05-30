@@ -7,7 +7,7 @@ package com.inatel.Interface;
 public class Main {
 
     public static void main(String[] args) {
-        TelaInicial t = new TelaInicial();
+        TelaAdicionar t = new TelaAdicionar();
         t.setVisible(true);
     }
 }
