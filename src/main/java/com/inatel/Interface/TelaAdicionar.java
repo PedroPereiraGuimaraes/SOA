@@ -625,6 +625,7 @@ public class TelaAdicionar extends javax.swing.JFrame {
                 h.inserirHorarioTrabalho(horarioTrabalho);
                 if (inserirFuncionario == true){
                     JOptionPane.showMessageDialog(null,"Novo funcionário adicionado.");
+                    voltarTelaInicial();
                 }
             }
             else if(funcaoAuxiliar.isSelected() == true && (empresaDAO.buscarEmpresa(empresaFuncionario.getText(), senhaFuncionario.getText())== true)){
@@ -637,6 +638,7 @@ public class TelaAdicionar extends javax.swing.JFrame {
                 h.inserirHorarioTrabalho(horarioTrabalho);
                 if (inserirFuncionario == true){
                     JOptionPane.showMessageDialog(null,"Novo funcionário adicionado.");
+                    voltarTelaInicial();
                 }
             } 
             else{
@@ -663,7 +665,8 @@ public class TelaAdicionar extends javax.swing.JFrame {
                 cidadePaciente.getText(),telefonePaciente.getText(),emailPaciente.getText());
                 boolean inserirPaciente = p.inserirPaciente(paciente);
                 if (inserirPaciente == true){
-                    JOptionPane.showMessageDialog(null,"Novo funcionário adicionado.");
+                    JOptionPane.showMessageDialog(null,"Novo paciente adicionado.");
+                    voltarTelaInicial();
                 }
         } 
         else{

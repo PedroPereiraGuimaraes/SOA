@@ -291,7 +291,9 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
             idFuncionario = f.buscarIdFuncionario(dentistaAtendimento.getText());
             atendimento = new Atendimento(dataAtendimento.getText(),
                     horarioAtendimento.getText(),procedimentoAtendimento.getText(),idFuncionario,idPaciente);
+            System.out.println(idFuncionario);
             boolean inserirAtendimento = a.inserirAtendimento(atendimento);
+            System.out.println(idFuncionario);
             if (inserirAtendimento == true){
                 JOptionPane.showMessageDialog(null,"Novo atendimento adicionado.");
             } 
