@@ -31,6 +31,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        voltarCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 400));
@@ -79,12 +80,25 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel1.setText("Tela Inicial");
         jLabel1.setToolTipText("");
 
+        voltarCadastro.setBackground(new java.awt.Color(62, 190, 76));
+        voltarCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        voltarCadastro.setText("Sair");
+        voltarCadastro.setToolTipText("Pronto");
+        voltarCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        voltarCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(voltarCadastro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -98,8 +112,13 @@ public class TelaInicial extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(voltarCadastro)))
                 .addGap(65, 65, 65)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
@@ -126,6 +145,11 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         mudarTelaAgenda();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void voltarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadastroActionPerformed
+        // TODO add your handling code here:
+        voltarTelaEmpresa();
+    }//GEN-LAST:event_voltarCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +191,11 @@ public class TelaInicial extends javax.swing.JFrame {
         this.setVisible(false);
         t.setVisible(true);
     }
+    public void voltarTelaEmpresa(){
+        TelaEmpresa t = new TelaEmpresa();
+        this.setVisible(false);
+        t.setVisible(true);
+    }
     
     public void mudarTelaHorarios(){
         TelaMarcarHorarios t = new TelaMarcarHorarios();
@@ -185,6 +214,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton voltarCadastro;
     // End of variables declaration//GEN-END:variables
 }
 

@@ -48,17 +48,17 @@
                               </Group>
                           </Group>
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="horarioInicio" min="-2" pref="66" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="horarioFim" pref="0" max="32767" attributes="0"/>
+                                  <Component id="horarioFim" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -79,39 +79,37 @@
                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="162" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="nomePaciente" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="emailPaciente" alignment="0" max="32767" attributes="0"/>
-                      <Component id="telefonePaciente" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="estadoPaciente" min="-2" pref="94" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="nomePaciente" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailPaciente" alignment="0" max="32767" attributes="0"/>
+                  <Component id="telefonePaciente" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cidadePaciente" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="estadoPaciente" min="-2" pref="94" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="cpfPaciente" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="cidadePaciente" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="emailPaciente3" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                  <Component id="senhaPaciente" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="emailPaciente4" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                  <Component id="empresaPaciente" alignment="0" max="32767" attributes="0"/>
+                  <Component id="paisPaciente" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
           </Group>
@@ -181,7 +179,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" pref="16" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cpfPaciente" min="-2" max="-2" attributes="0"/>
+                      <Component id="paisPaciente" min="-2" pref="22" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -219,11 +217,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel22" min="-2" pref="16" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="emailPaciente4" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="empresaPaciente" min="-2" pref="22" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="emailPaciente3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="senhaPaciente" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -396,7 +394,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CPF"/>
+        <Property name="text" type="java.lang.String" value="Pais"/>
         <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
     </Component>
@@ -514,15 +512,19 @@
     <Component class="javax.swing.JComboBox" name="horarioInicio">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="06:00"/>
-            <StringItem index="1" value="07:00"/>
-            <StringItem index="2" value="08:00"/>
-            <StringItem index="3" value="09:00"/>
-            <StringItem index="4" value="10:00"/>
+          <StringArray count="6">
+            <StringItem index="0" value="-"/>
+            <StringItem index="1" value="06"/>
+            <StringItem index="2" value="07"/>
+            <StringItem index="3" value="08"/>
+            <StringItem index="4" value="09"/>
+            <StringItem index="5" value="10"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="horarioInicioActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -542,11 +544,12 @@
     <Component class="javax.swing.JComboBox" name="horarioFim">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="16:00"/>
-            <StringItem index="1" value="17:00"/>
-            <StringItem index="2" value="18:00"/>
-            <StringItem index="3" value="19:00"/>
+          <StringArray count="5">
+            <StringItem index="0" value="-"/>
+            <StringItem index="1" value="16"/>
+            <StringItem index="2" value="17"/>
+            <StringItem index="3" value="18"/>
+            <StringItem index="4" value="19"/>
           </StringArray>
         </Property>
       </Properties>
@@ -559,17 +562,6 @@
         <Property name="text" type="java.lang.String" value="Fim"/>
         <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="cpfPaciente">
-      <Properties>
-        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Format format="###.###.###-##" subtype="-1" type="5"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfPacienteActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="voltarCadastro">
       <Properties>
@@ -617,12 +609,12 @@
         <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="emailPaciente3">
+    <Component class="javax.swing.JTextField" name="senhaPaciente">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="E-mail"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailPaciente3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaPacienteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel21">
@@ -631,12 +623,12 @@
         <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="emailPaciente4">
+    <Component class="javax.swing.JTextField" name="empresaPaciente">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="E-mail"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailPaciente4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="empresaPacienteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel22">
@@ -644,6 +636,14 @@
         <Property name="text" type="java.lang.String" value="Empresa"/>
         <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="paisPaciente">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Telefone"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paisPacienteActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

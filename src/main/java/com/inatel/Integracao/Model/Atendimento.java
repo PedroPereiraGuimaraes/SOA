@@ -2,15 +2,13 @@ package com.inatel.Integracao.Model;
 
 public class Atendimento {
 
-    private String nomePaciente;
-    private String idPaciente;
-    private String idFuncionario;
+    private int idPaciente;
+    private int idFuncionario;
     private String data;
-    private int hora;
+    private String hora;
     private String procedimento;
 
-    public Atendimento(String nomePaciente, String idPaciente, String idFuncionario, String data, int hora, String procedimento) {
-        this.nomePaciente = nomePaciente;
+    public Atendimento(String data, String hora, String procedimento,int idPaciente, int idFuncionario) {
         this.idPaciente = idPaciente;
         this.idFuncionario = idFuncionario;
         this.data = data;
@@ -18,15 +16,11 @@ public class Atendimento {
         this.procedimento = procedimento;
     }
 
-    public String getNomePaciente() {
-        return nomePaciente;
-    }
-
-    public String getIdPaciente() {
+    public int getIdPaciente() {
         return idPaciente;
     }
 
-    public String getIdFuncionario() {
+    public int getIdFuncionario() {
         return idFuncionario;
     }
 
@@ -34,7 +28,7 @@ public class Atendimento {
         return data;
     }
 
-    public int getHora() {
+    public String getHora() {
         return hora;
     }
 

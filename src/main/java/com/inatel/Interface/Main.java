@@ -7,7 +7,7 @@ package com.inatel.Interface;
 public class Main {
 
     public static void main(String[] args) {
-        TelaAdicionar t = new TelaAdicionar();
+        TelaMarcarHorarios t = new TelaMarcarHorarios();
         t.setVisible(true);
     }
 }

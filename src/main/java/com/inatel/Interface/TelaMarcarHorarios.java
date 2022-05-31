@@ -4,6 +4,10 @@
  */
 package com.inatel.Interface;
 
+import com.inatel.Integracao.DAO.AtendimentoDAO;
+import com.inatel.Integracao.DAO.FuncionarioDAO;
+import com.inatel.Integracao.DAO.PacienteDAO;
+import com.inatel.Integracao.Model.Atendimento;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,34 +33,31 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        horarioAtendimento = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        nomePacienteAtendimento = new javax.swing.JTextField();
+        dentistaAtendimento = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         procedimentoAtendimento = new javax.swing.JFormattedTextField();
         prontoAtendimento = new javax.swing.JButton();
-        dentistaAtendimento = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        dataAtendimento = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        pesquisarAtendimento = new javax.swing.JButton();
         voltarCadastro = new javax.swing.JButton();
+        nomePacienteAtendimento = new javax.swing.JTextField();
+        horarioAtendimento = new javax.swing.JTextField();
+        dataAtendimento = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 500));
 
-        horarioAtendimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel5.setText("Nome Paciente");
+        jLabel5.setText("Paciente");
         jLabel5.setAlignmentY(0.0F);
 
-        nomePacienteAtendimento.setToolTipText("Nome");
-        nomePacienteAtendimento.addActionListener(new java.awt.event.ActionListener() {
+        dentistaAtendimento.setToolTipText("Nome");
+        dentistaAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomePacienteAtendimentoActionPerformed(evt);
+                dentistaAtendimentoActionPerformed(evt);
             }
         });
 
@@ -83,12 +84,8 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
             }
         });
 
-        dentistaAtendimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel9.setText("Data");
         jLabel9.setAlignmentY(0.0F);
-
-        dataAtendimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setBackground(new java.awt.Color(62, 190, 76));
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
@@ -105,17 +102,6 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
         jLabel2.setText("Atendimento");
         jLabel2.setToolTipText("");
 
-        pesquisarAtendimento.setBackground(new java.awt.Color(62, 190, 76));
-        pesquisarAtendimento.setForeground(new java.awt.Color(255, 255, 255));
-        pesquisarAtendimento.setText("Pesquisar");
-        pesquisarAtendimento.setToolTipText("Pesquisar");
-        pesquisarAtendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-        pesquisarAtendimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisarAtendimentoActionPerformed(evt);
-            }
-        });
-
         voltarCadastro.setBackground(new java.awt.Color(62, 190, 76));
         voltarCadastro.setForeground(new java.awt.Color(255, 255, 255));
         voltarCadastro.setText("Voltar");
@@ -124,6 +110,26 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
         voltarCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 voltarCadastroActionPerformed(evt);
+            }
+        });
+
+        nomePacienteAtendimento.setToolTipText("Nome");
+        nomePacienteAtendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomePacienteAtendimentoActionPerformed(evt);
+            }
+        });
+
+        horarioAtendimento.setToolTipText("Nome");
+        horarioAtendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horarioAtendimentoActionPerformed(evt);
+            }
+        });
+
+        dataAtendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataAtendimentoActionPerformed(evt);
             }
         });
 
@@ -136,7 +142,6 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomePacienteAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(procedimentoAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,18 +150,18 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
                                 .addComponent(prontoAtendimento))
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(dentistaAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(dataAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel9))
-                                .addGap(44, 44, 44)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pesquisarAtendimento, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(horarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10)))
-                            .addComponent(jLabel7)))
+                            .addComponent(jLabel7)
+                            .addComponent(nomePacienteAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(dentistaAtendimento)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9)
+                                        .addComponent(dataAtendimento, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addComponent(horarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(voltarCadastro)))
@@ -178,19 +183,14 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pesquisarAtendimento)
-                    .addComponent(dentistaAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(horarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dataAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(dentistaAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(horarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -203,9 +203,9 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nomePacienteAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomePacienteAtendimentoActionPerformed
+    private void dentistaAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dentistaAtendimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomePacienteAtendimentoActionPerformed
+    }//GEN-LAST:event_dentistaAtendimentoActionPerformed
 
     private void procedimentoAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procedimentoAtendimentoActionPerformed
         // TODO add your handling code here:
@@ -213,17 +213,25 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
 
     private void prontoAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prontoAtendimentoActionPerformed
         // TODO add your handling code here:
-        verificarCamposVaziosAtendimentos();
+        inserirNovoAtendimento();
     }//GEN-LAST:event_prontoAtendimentoActionPerformed
-
-    private void pesquisarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarAtendimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pesquisarAtendimentoActionPerformed
 
     private void voltarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadastroActionPerformed
         // TODO add your handling code here:
         voltarTelaInicial();
     }//GEN-LAST:event_voltarCadastroActionPerformed
+
+    private void nomePacienteAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomePacienteAtendimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomePacienteAtendimentoActionPerformed
+
+    private void horarioAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioAtendimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horarioAtendimentoActionPerformed
+
+    private void dataAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAtendimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataAtendimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,16 +274,40 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
         t.setVisible(true);
     }
     
-    public void verificarCamposVaziosAtendimentos(){
-        if("".equals(nomePacienteAtendimento.getText()) || "".equals(procedimentoAtendimento.getText())){
+    public void inserirNovoAtendimento(){
+        PacienteDAO p = new PacienteDAO();
+        FuncionarioDAO f = new FuncionarioDAO();
+        AtendimentoDAO a = new AtendimentoDAO();
+        Atendimento atendimento;
+        int idPaciente;
+        int idFuncionario;
+        if("".equals(nomePacienteAtendimento.getText()) || "".equals(dentistaAtendimento.getText())
+                || "".equals(dataAtendimento.getText()) || "".equals(horarioAtendimento.getText()) 
+                || "".equals(procedimentoAtendimento.getText())){
             JOptionPane.showMessageDialog(null,"Preencha os campos corretamente");
+        }
+        else if(p.buscarPaciente(nomePacienteAtendimento.getText())== true && f.buscarFuncionario(dentistaAtendimento.getText()) == true){
+            idPaciente = p.buscarIdPaciente(nomePacienteAtendimento.getText());
+            idFuncionario = f.buscarIdFuncionario(dentistaAtendimento.getText());
+            atendimento = new Atendimento(dataAtendimento.getText(),
+                    horarioAtendimento.getText(),procedimentoAtendimento.getText(),idFuncionario,idPaciente);
+            boolean inserirAtendimento = a.inserirAtendimento(atendimento);
+            if (inserirAtendimento == true){
+                JOptionPane.showMessageDialog(null,"Novo atendimento adicionado.");
+            } 
+        }
+        else if(p.buscarPaciente(nomePacienteAtendimento.getText())== false){
+            JOptionPane.showMessageDialog(null,"Nome do paciente inexistente.");
+        }
+        else if(f.buscarFuncionario(dentistaAtendimento.getText()) == false){
+            JOptionPane.showMessageDialog(null,"Nome do dentista inexistente.");
         }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> dataAtendimento;
-    private javax.swing.JComboBox<String> dentistaAtendimento;
-    private javax.swing.JComboBox<String> horarioAtendimento;
+    private javax.swing.JFormattedTextField dataAtendimento;
+    private javax.swing.JTextField dentistaAtendimento;
+    private javax.swing.JTextField horarioAtendimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -284,7 +316,6 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField nomePacienteAtendimento;
-    private javax.swing.JButton pesquisarAtendimento;
     private javax.swing.JFormattedTextField procedimentoAtendimento;
     private javax.swing.JButton prontoAtendimento;
     private javax.swing.JButton voltarCadastro;

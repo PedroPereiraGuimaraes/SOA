@@ -3,15 +3,15 @@ package com.inatel.Integracao.Model;
 public class Paciente {
 
     private String nome;
-    private String cpf;
+    private String pais;
     private String estado;
     private String cidade;
     private String telefone;
     private String email;
 
-    public Paciente(String nome, String cpf, String estado, String cidade, String telefone, String email) {
+    public Paciente(String nome, String pais, String estado, String cidade, String telefone, String email) {
         this.nome = nome;
-        this.cpf = cpf;
+        this.pais = pais;
         this.estado = estado;
         this.cidade = cidade;
         this.telefone = telefone;
@@ -22,8 +22,8 @@ public class Paciente {
         return nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getPais() {
+        return pais;
     }
 
     public String getEstado() {

@@ -7,7 +7,11 @@ package com.inatel.Interface;
 import com.inatel.Integracao.DAO.EmpresaDAO;
 import javax.swing.JOptionPane;
 import com.inatel.Integracao.DAO.FuncionarioDAO;
+import com.inatel.Integracao.DAO.HorarioTrabalhoDAO;
+import com.inatel.Integracao.DAO.PacienteDAO;
 import com.inatel.Integracao.Model.Funcionario;
+import com.inatel.Integracao.Model.HorarioTrabalho;
+import com.inatel.Integracao.Model.Paciente;
 
 /**
  *
@@ -64,16 +68,16 @@ public class TelaAdicionar extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         horarioFim = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        cpfPaciente = new javax.swing.JFormattedTextField();
         voltarCadastro = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         empresaFuncionario = new javax.swing.JTextField();
         senhaFuncionario = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        emailPaciente3 = new javax.swing.JTextField();
+        senhaPaciente = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        emailPaciente4 = new javax.swing.JTextField();
+        empresaPaciente = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
+        paisPaciente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -165,7 +169,7 @@ public class TelaAdicionar extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("CPF");
+        jLabel12.setText("Pais");
         jLabel12.setAlignmentY(0.0F);
 
         jLabel13.setText("Cidade");
@@ -226,7 +230,12 @@ public class TelaAdicionar extends javax.swing.JFrame {
         jLabel4.setText("Novo");
         jLabel4.setToolTipText("");
 
-        horarioInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:00", "07:00", "08:00", "09:00", "10:00" }));
+        horarioInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "06", "07", "08", "09", "10" }));
+        horarioInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horarioInicioActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Horario");
         jLabel9.setAlignmentY(0.0F);
@@ -234,22 +243,10 @@ public class TelaAdicionar extends javax.swing.JFrame {
         jLabel10.setText("Inicio");
         jLabel10.setAlignmentY(0.0F);
 
-        horarioFim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "16:00", "17:00", "18:00", "19:00" }));
+        horarioFim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "16", "17", "18", "19" }));
 
         jLabel18.setText("Fim");
         jLabel18.setAlignmentY(0.0F);
-
-        try {
-            cpfPaciente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        cpfPaciente.setToolTipText("");
-        cpfPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfPacienteActionPerformed(evt);
-            }
-        });
 
         voltarCadastro.setBackground(new java.awt.Color(62, 190, 76));
         voltarCadastro.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,25 +279,32 @@ public class TelaAdicionar extends javax.swing.JFrame {
         jLabel20.setText("Senha");
         jLabel20.setAlignmentY(0.0F);
 
-        emailPaciente3.setToolTipText("E-mail");
-        emailPaciente3.addActionListener(new java.awt.event.ActionListener() {
+        senhaPaciente.setToolTipText("E-mail");
+        senhaPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailPaciente3ActionPerformed(evt);
+                senhaPacienteActionPerformed(evt);
             }
         });
 
         jLabel21.setText("Senha");
         jLabel21.setAlignmentY(0.0F);
 
-        emailPaciente4.setToolTipText("E-mail");
-        emailPaciente4.addActionListener(new java.awt.event.ActionListener() {
+        empresaPaciente.setToolTipText("E-mail");
+        empresaPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailPaciente4ActionPerformed(evt);
+                empresaPacienteActionPerformed(evt);
             }
         });
 
         jLabel22.setText("Empresa");
         jLabel22.setAlignmentY(0.0F);
+
+        paisPaciente.setToolTipText("Telefone");
+        paisPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paisPacienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -318,16 +322,16 @@ public class TelaAdicionar extends javax.swing.JFrame {
                                     .addComponent(funcaoAuxiliar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGap(24, 24, 24)))
                             .addGap(6, 6, 6)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel10)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(horarioInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jLabel9)
-                                .addGroup(layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel18)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(horarioFim, 0, 1, Short.MAX_VALUE)))))
+                                    .addComponent(horarioFim, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel8)
                         .addComponent(jLabel7)
@@ -342,33 +346,32 @@ public class TelaAdicionar extends javax.swing.JFrame {
                     .addComponent(empresaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(nomePaciente)
-                        .addComponent(jLabel12)
-                        .addComponent(jLabel14)
-                        .addComponent(jLabel15)
-                        .addComponent(emailPaciente)
-                        .addComponent(telefonePaciente)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(63, 63, 63))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(estadoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel13)
-                                .addComponent(cidadePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel17)
-                        .addComponent(jLabel4)
-                        .addComponent(cpfPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nomePaciente)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(emailPaciente)
+                    .addComponent(telefonePaciente)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(63, 63, 63))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(estadoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(cidadePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel4)
                     .addComponent(jLabel21)
-                    .addComponent(emailPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaPaciente)
                     .addComponent(jLabel22)
-                    .addComponent(emailPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(empresaPaciente)
+                    .addComponent(paisPaciente))
                 .addGap(137, 137, 137))
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
@@ -429,7 +432,7 @@ public class TelaAdicionar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cpfPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(paisPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -461,11 +464,11 @@ public class TelaAdicionar extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empresaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(senhaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prontoFuncionario)
@@ -482,7 +485,7 @@ public class TelaAdicionar extends javax.swing.JFrame {
 
     private void prontoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prontoPacienteActionPerformed
         // TODO add your handling code here:
-        verificarCamposVaziosPaciente();
+        inserirNovoPaciente();
     }//GEN-LAST:event_prontoPacienteActionPerformed
 
     private void especialidadeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especialidadeFuncionarioActionPerformed
@@ -526,10 +529,6 @@ public class TelaAdicionar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailPacienteActionPerformed
 
-    private void cpfPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfPacienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfPacienteActionPerformed
-
     private void voltarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadastroActionPerformed
         // TODO add your handling code here:
         voltarTelaInicial();
@@ -543,13 +542,21 @@ public class TelaAdicionar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaFuncionarioActionPerformed
 
-    private void emailPaciente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailPaciente3ActionPerformed
+    private void senhaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaPacienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailPaciente3ActionPerformed
+    }//GEN-LAST:event_senhaPacienteActionPerformed
 
-    private void emailPaciente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailPaciente4ActionPerformed
+    private void empresaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empresaPacienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailPaciente4ActionPerformed
+    }//GEN-LAST:event_empresaPacienteActionPerformed
+
+    private void paisPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paisPacienteActionPerformed
+
+    private void horarioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horarioInicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -592,27 +599,15 @@ public class TelaAdicionar extends javax.swing.JFrame {
         t.setVisible(true);
     }
     
-    public boolean verificarCamposVaziosFuncionario(){
-        if("".equals(nomeFuncionario.getText()) || "".equals(especialidadeFuncionario.getText()) || "".equals(craFuncionario.getText())){
-            JOptionPane.showMessageDialog(null,"Preencha os campos corretamente");
-            return false;
-        }else
-            return true;
-    }
-    
-    public void verificarCamposVaziosPaciente(){
-        if("".equals(nomePaciente.getText()) || "".equals(cpfPaciente.getText()) || "Selecione".equals(estadoPaciente.getSelectedItem())
-                || "".equals(cidadePaciente.getText()) || "".equals(telefonePaciente.getText()) || "".equals(emailPaciente.getText())){
-            JOptionPane.showMessageDialog(null,"Preencha os campos corretamente");
-        }
-    }
-    
     public void inserirNovoFuncionario(){
         FuncionarioDAO f = new FuncionarioDAO();
         Funcionario funcionario;
         EmpresaDAO empresaDAO = new EmpresaDAO();
+        HorarioTrabalhoDAO h = new HorarioTrabalhoDAO();
+        HorarioTrabalho horarioTrabalho;
+        int id;
         String funcao = " ";
-        if("".equals(nomeFuncionario.getText()) || "".equals(especialidadeFuncionario.getText()) || "".equals(craFuncionario.getText())){
+        if("".equals(nomeFuncionario.getText()) || "".equals(especialidadeFuncionario.getText()) || "".equals(craFuncionario.getText()) || "-".equals(horarioInicio.getSelectedItem())|| "-".equals(horarioFim.getSelectedItem())){
             JOptionPane.showMessageDialog(null,"Preencha os campos corretamente");
         }
         else{
@@ -625,6 +620,9 @@ public class TelaAdicionar extends javax.swing.JFrame {
                 funcionario = new Funcionario(nomeFuncionario.getText(),funcao,
                     especialidadeFuncionario.getText(),craFuncionario.getText(),empresaDAO.buscarIdEmpresa(empresaFuncionario.getText()));
                 boolean inserirFuncionario = f.inserirFuncionario(funcionario);
+                id= f.buscarIdFuncionario(nomeFuncionario.getText());
+                horarioTrabalho = new HorarioTrabalho((String)horarioInicio.getSelectedItem(),(String)horarioFim.getSelectedItem(),id);
+                h.inserirHorarioTrabalho(horarioTrabalho);
                 if (inserirFuncionario == true){
                     JOptionPane.showMessageDialog(null,"Novo funcionário adicionado.");
                 }
@@ -634,6 +632,9 @@ public class TelaAdicionar extends javax.swing.JFrame {
                 funcionario = new Funcionario(nomeFuncionario.getText(),funcao,
                     especialidadeFuncionario.getText(),craFuncionario.getText(),empresaDAO.buscarIdEmpresa(empresaFuncionario.getText()));
                 boolean inserirFuncionario = f.inserirFuncionario(funcionario);
+                id= f.buscarIdFuncionario(nomeFuncionario.getText());
+                horarioTrabalho = new HorarioTrabalho((String)horarioInicio.getSelectedItem(),(String)horarioFim.getSelectedItem(),id);
+                h.inserirHorarioTrabalho(horarioTrabalho);
                 if (inserirFuncionario == true){
                     JOptionPane.showMessageDialog(null,"Novo funcionário adicionado.");
                 }
@@ -641,17 +642,42 @@ public class TelaAdicionar extends javax.swing.JFrame {
             else{
                JOptionPane.showMessageDialog(null,"Nome da empresa ou/e senha estão incorretos"); 
             }
+            
+            
+            
         } 
    }
 
+   
+    public void inserirNovoPaciente(){
+        PacienteDAO p = new PacienteDAO();
+        EmpresaDAO empresaDAO = new EmpresaDAO();
+        Paciente paciente;
+        String funcao = " ";
+        if("".equals(nomePaciente.getText()) || "".equals(paisPaciente.getText()) || "Selecione".equals(estadoPaciente.getSelectedItem())
+                || "".equals(cidadePaciente.getText()) || "".equals(telefonePaciente.getText()) || "".equals(emailPaciente.getText())){
+            JOptionPane.showMessageDialog(null,"Preencha os campos corretamente");
+        }
+        else if(empresaDAO.buscarEmpresa(empresaPaciente.getText(), senhaPaciente.getText())== true){
+            paciente = new Paciente(nomePaciente.getText(),paisPaciente.getText(), (String) estadoPaciente.getSelectedItem(),
+                cidadePaciente.getText(),telefonePaciente.getText(),emailPaciente.getText());
+                boolean inserirPaciente = p.inserirPaciente(paciente);
+                if (inserirPaciente == true){
+                    JOptionPane.showMessageDialog(null,"Novo funcionário adicionado.");
+                }
+        } 
+        else{
+            JOptionPane.showMessageDialog(null,"Nome da empresa ou/e senha estão incorretos"); 
+        }
+   }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cidadePaciente;
-    private javax.swing.JFormattedTextField cpfPaciente;
     private javax.swing.JFormattedTextField craFuncionario;
     private javax.swing.JTextField emailPaciente;
-    private javax.swing.JTextField emailPaciente3;
-    private javax.swing.JTextField emailPaciente4;
     private javax.swing.JTextField empresaFuncionario;
+    private javax.swing.JTextField empresaPaciente;
     private javax.swing.JTextField especialidadeFuncionario;
     private javax.swing.JComboBox<String> estadoPaciente;
     private javax.swing.JCheckBox funcaoAuxiliar;
@@ -682,9 +708,11 @@ public class TelaAdicionar extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JTextField nomeFuncionario;
     private javax.swing.JTextField nomePaciente;
+    private javax.swing.JTextField paisPaciente;
     private javax.swing.JButton prontoFuncionario;
     private javax.swing.JButton prontoPaciente;
     private javax.swing.JTextField senhaFuncionario;
+    private javax.swing.JTextField senhaPaciente;
     private javax.swing.JTextField telefonePaciente;
     private javax.swing.JButton voltarCadastro;
     // End of variables declaration//GEN-END:variables
