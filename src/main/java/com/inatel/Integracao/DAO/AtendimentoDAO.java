@@ -3,6 +3,7 @@ package com.inatel.Integracao.DAO;
 import com.inatel.Integracao.Model.Atendimento;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class AtendimentoDAO extends ConnectionDAO {
 
@@ -35,15 +36,17 @@ public class AtendimentoDAO extends ConnectionDAO {
         return sucesso;
     }
     
-    public String pesquisarAtendimento(String nome) {
+    public boolean deletarAtendimento(int id) {
         connectToDB();
-        String saida;
-        String sql = "SELECT nomePaciente, data, hora, procedimento FROM atendimento WHERE nome  LIKE '%" + nome +"%'";
+        String sql = "DELETE FROM atendimento WHERE idAtendimento = ?";
         try {
             pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
             pst.execute();
+            sucesso = true;
         } catch(SQLException exc) {
             System.out.println("Erro: " + exc.getMessage());
+            sucesso = false;
         } finally {
             try {
                 con.close();
@@ -52,6 +55,38 @@ public class AtendimentoDAO extends ConnectionDAO {
                 System.out.println("Erro: " + exc.getMessage());
             }
         }
-        return "Nada";
+        return sucesso;
+    }
+    
+    
+    public ArrayList<Atendimento> pesquisarAtendimento(String nome) {
+        ArrayList<Atendimento> listaAtendimentos = new ArrayList<>();
+        connectToDB();
+        String sql = "SELECT p.nome,a.data,a.hora,a.idAtendimento, a.procedimento, f.nome FROM atendimento AS a INNER JOIN paciente AS p INNER JOIN  funcionarios AS f ON a.Funcionarios_idFuncionarios = f.idFuncionarios AND p.nome = ?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, nome);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Atendimento atendimentos = new Atendimento();
+                atendimentos.setData(rs.getString("a.data"));
+                atendimentos.setHora(rs.getString("a.hora"));
+                atendimentos.setProcedimento(rs.getString("a.procedimento"));
+                atendimentos.setId(rs.getInt("idAtendimento"));
+                listaAtendimentos.add(atendimentos);
+            }
+            sucesso = true;
+        } catch(SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+            } catch(SQLException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        }
+        
+        return listaAtendimentos;
     }
 }

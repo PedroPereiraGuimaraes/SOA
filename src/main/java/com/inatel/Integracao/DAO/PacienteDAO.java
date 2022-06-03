@@ -37,19 +37,28 @@ public class PacienteDAO extends ConnectionDAO {
     }
     
     public int buscarIdPaciente(String nome) {
-        int id = 0;
         connectToDB();
-        String sql = "SELECT idPaciente FROM paciente WHERE nome = ?";
+        Paciente p = null;
+        String sql = "SELECT nome,idPaciente FROM paciente WHERE nome like ?";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, nome);
             rs = pst.executeQuery();
             while (rs.next()) {
-                id = rs.getInt("idPaciente");
+                
+                String id =rs.getString("nome");
+            
+                if(id.isEmpty())
+                {
+                    sucesso= false;
+                } else {
+                    p = new Paciente();
+                    p.setId(rs.getInt("idPaciente"));
+                    System.out.println(p.getId());
+                } 
             }
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
-            id = 0;
         } finally {
             try {
                 con.close();
@@ -58,12 +67,12 @@ public class PacienteDAO extends ConnectionDAO {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return id;
+        return p.getId();
     }
     
     public boolean buscarPaciente(String nome) {
         connectToDB();
-        String sql = "SELECT * FROM paciente WHERE nome = ?";
+        String sql = "SELECT * FROM paciente WHERE nome like ?";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, nome);

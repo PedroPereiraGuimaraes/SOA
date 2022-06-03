@@ -1,7 +1,8 @@
 package com.inatel.Integracao.Model;
 
 public class Paciente {
-
+    
+    private int id;
     private String nome;
     private String pais;
     private String estado;
@@ -17,9 +18,21 @@ public class Paciente {
         this.telefone = telefone;
         this.email = email;
     }
+    
+    public Paciente(){
+        
+    }
 
     public String getNome() {
         return nome;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPais() {

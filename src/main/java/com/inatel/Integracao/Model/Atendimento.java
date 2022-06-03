@@ -2,6 +2,7 @@ package com.inatel.Integracao.Model;
 
 public class Atendimento {
 
+    private int id;
     private int idPaciente;
     private int idFuncionario;
     private String data;
@@ -16,9 +17,22 @@ public class Atendimento {
         this.procedimento = procedimento;
     }
 
+    public Atendimento() {
+        
+    }
+
     public int getIdPaciente() {
         return idPaciente;
     }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public int getIdFuncionario() {
         return idFuncionario;
@@ -27,12 +41,24 @@ public class Atendimento {
     public String getData() {
         return data;
     }
+    
+    public void setData(String data) {
+        this.data = data;
+    }
 
     public String getHora() {
         return hora;
     }
+    
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
 
     public String getProcedimento() {
         return procedimento;
+    }
+    
+    public void setProcedimento(String procedimento) {
+        this.procedimento = procedimento;
     }
 }

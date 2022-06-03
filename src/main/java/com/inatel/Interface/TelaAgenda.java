@@ -4,6 +4,10 @@
  */
 package com.inatel.Interface;
 
+import com.inatel.Integracao.DAO.AtendimentoDAO;
+import com.inatel.Integracao.Model.Atendimento;
+import java.util.ArrayList;
+
 /**
  *
  * @author ppg10
@@ -31,15 +35,13 @@ public class TelaAgenda extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nomePacienteAtendimento = new javax.swing.JTextField();
-        pesquisarAtendimento = new javax.swing.JButton();
+        pesquisaAgenda = new javax.swing.JButton();
         voltarCadastro = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPesquisa = new javax.swing.JList<>();
-        pesquisarAtendimento1 = new javax.swing.JButton();
         pesquisarAtendimento2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
 
         jLabel1.setBackground(new java.awt.Color(62, 190, 76));
@@ -64,14 +66,14 @@ public class TelaAgenda extends javax.swing.JFrame {
             }
         });
 
-        pesquisarAtendimento.setBackground(new java.awt.Color(62, 190, 76));
-        pesquisarAtendimento.setForeground(new java.awt.Color(255, 255, 255));
-        pesquisarAtendimento.setText("Pesquisar");
-        pesquisarAtendimento.setToolTipText("Pesquisar");
-        pesquisarAtendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pesquisarAtendimento.addActionListener(new java.awt.event.ActionListener() {
+        pesquisaAgenda.setBackground(new java.awt.Color(62, 190, 76));
+        pesquisaAgenda.setForeground(new java.awt.Color(255, 255, 255));
+        pesquisaAgenda.setText("Pesquisar");
+        pesquisaAgenda.setToolTipText("Pesquisar");
+        pesquisaAgenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pesquisaAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisarAtendimentoActionPerformed(evt);
+                pesquisaAgendaActionPerformed(evt);
             }
         });
 
@@ -87,17 +89,6 @@ public class TelaAgenda extends javax.swing.JFrame {
         });
 
         jScrollPane1.setViewportView(listaPesquisa);
-
-        pesquisarAtendimento1.setBackground(new java.awt.Color(62, 190, 76));
-        pesquisarAtendimento1.setForeground(new java.awt.Color(255, 255, 255));
-        pesquisarAtendimento1.setText("Excluir");
-        pesquisarAtendimento1.setToolTipText("Pesquisar");
-        pesquisarAtendimento1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pesquisarAtendimento1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisarAtendimento1ActionPerformed(evt);
-            }
-        });
 
         pesquisarAtendimento2.setBackground(new java.awt.Color(62, 190, 76));
         pesquisarAtendimento2.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,10 +113,7 @@ public class TelaAgenda extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pesquisarAtendimento1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pesquisarAtendimento2))
+                            .addComponent(pesquisarAtendimento2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +125,7 @@ public class TelaAgenda extends javax.swing.JFrame {
                                             .addGap(0, 0, Short.MAX_VALUE))
                                         .addComponent(nomePacienteAtendimento, javax.swing.GroupLayout.Alignment.TRAILING))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(pesquisarAtendimento))
+                                    .addComponent(pesquisaAgenda))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
@@ -155,13 +143,11 @@ public class TelaAgenda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomePacienteAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pesquisarAtendimento))
+                    .addComponent(pesquisaAgenda))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pesquisarAtendimento1)
-                    .addComponent(pesquisarAtendimento2))
+                .addComponent(pesquisarAtendimento2)
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
@@ -172,22 +158,19 @@ public class TelaAgenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomePacienteAtendimentoActionPerformed
 
-    private void pesquisarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarAtendimentoActionPerformed
+    private void pesquisaAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaAgendaActionPerformed
         // TODO add your handling code here:
         pesquisarAtendimentos();
-    }//GEN-LAST:event_pesquisarAtendimentoActionPerformed
+    }//GEN-LAST:event_pesquisaAgendaActionPerformed
 
     private void voltarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadastroActionPerformed
         // TODO add your handling code here:
         voltarTelaInicial();
     }//GEN-LAST:event_voltarCadastroActionPerformed
 
-    private void pesquisarAtendimento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarAtendimento1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pesquisarAtendimento1ActionPerformed
-
     private void pesquisarAtendimento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarAtendimento2ActionPerformed
         // TODO add your handling code here:
+        deletarAtendimento();
     }//GEN-LAST:event_pesquisarAtendimento2ActionPerformed
 
     /**
@@ -232,12 +215,25 @@ public class TelaAgenda extends javax.swing.JFrame {
     }
     
     public void pesquisarAtendimentos(){  
-        String[] atendimentos = new String[5];
-        for(int i=0;i<5;i++){
-            atendimentos[i] = "Pedro Guimarães | 19:00 | 20/04/2022 | Francilene Silva" ;
+        AtendimentoDAO a = new AtendimentoDAO();
+        ArrayList<Atendimento> listaAtendimentos;
+        listaAtendimentos = a.pesquisarAtendimento(nomePacienteAtendimento.getText());
+        String atendimentos[] = new String[listaAtendimentos.size()];
+        for(int i=0;i<listaAtendimentos.size();i++){
+            atendimentos[i] ="Id: " +
+                    listaAtendimentos.get(i).getId() + " | Nome: " + nomePacienteAtendimento.getText() + " | Data: " + listaAtendimentos.get(i).getData() + " | Hora: " + 
+                    listaAtendimentos.get(i).getHora() + " | Procedimento: " + listaAtendimentos.get(i).getProcedimento();
         }
         listaPesquisa.setListData(atendimentos);
     };
+    
+    public void deletarAtendimento(){
+        AtendimentoDAO a = new AtendimentoDAO();
+        String s = (String) listaPesquisa.getSelectedValue();
+        int id =  Integer. valueOf(s.substring(4, 5));
+        a.deletarAtendimento(id);
+        pesquisarAtendimentos();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -246,8 +242,7 @@ public class TelaAgenda extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPesquisa;
     private javax.swing.JTextField nomePacienteAtendimento;
-    private javax.swing.JButton pesquisarAtendimento;
-    private javax.swing.JButton pesquisarAtendimento1;
+    private javax.swing.JButton pesquisaAgenda;
     private javax.swing.JButton pesquisarAtendimento2;
     private javax.swing.JButton voltarCadastro;
     // End of variables declaration//GEN-END:variables

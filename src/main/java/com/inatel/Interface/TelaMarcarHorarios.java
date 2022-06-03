@@ -8,6 +8,8 @@ import com.inatel.Integracao.DAO.AtendimentoDAO;
 import com.inatel.Integracao.DAO.FuncionarioDAO;
 import com.inatel.Integracao.DAO.PacienteDAO;
 import com.inatel.Integracao.Model.Atendimento;
+import com.inatel.Integracao.Model.Funcionario;
+import com.inatel.Integracao.Model.Paciente;
 import javax.swing.JOptionPane;
 
 /**
@@ -278,9 +280,9 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
         PacienteDAO p = new PacienteDAO();
         FuncionarioDAO f = new FuncionarioDAO();
         AtendimentoDAO a = new AtendimentoDAO();
-        Atendimento atendimento;
         int idPaciente;
         int idFuncionario;
+        Atendimento atendimento;
         if("".equals(nomePacienteAtendimento.getText()) || "".equals(dentistaAtendimento.getText())
                 || "".equals(dataAtendimento.getText()) || "".equals(horarioAtendimento.getText()) 
                 || "".equals(procedimentoAtendimento.getText())){
@@ -291,9 +293,7 @@ public class TelaMarcarHorarios extends javax.swing.JFrame {
             idFuncionario = f.buscarIdFuncionario(dentistaAtendimento.getText());
             atendimento = new Atendimento(dataAtendimento.getText(),
                     horarioAtendimento.getText(),procedimentoAtendimento.getText(),idFuncionario,idPaciente);
-            System.out.println(idFuncionario);
             boolean inserirAtendimento = a.inserirAtendimento(atendimento);
-            System.out.println(idFuncionario);
             if (inserirAtendimento == true){
                 JOptionPane.showMessageDialog(null,"Novo atendimento adicionado.");
             } 

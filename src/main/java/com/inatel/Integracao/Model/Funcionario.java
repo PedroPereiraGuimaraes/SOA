@@ -1,6 +1,7 @@
 package com.inatel.Integracao.Model;
 public class Funcionario {
 
+    private int id;
     private String nome;
     private String funcao;
     private String especialidade;
@@ -14,9 +15,21 @@ public class Funcionario {
         this.cra = cra;
         this.empresa = empresa;
     }
+    
+    public Funcionario(){
+        
+    }
 
     public String getNome() {
         return nome;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public String getFuncao() {

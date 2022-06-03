@@ -36,19 +36,27 @@ public class FuncionarioDAO extends ConnectionDAO {
     }
     
     public int buscarIdFuncionario(String nome) {
-        int id = 0;
+        Funcionario f = null;
         connectToDB();
-        String sql = "SELECT idFuncionarios FROM funcionarios WHERE nome = ?";
+        String sql = "SELECT nome,idFuncionarios FROM funcionarios WHERE nome like ?";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, nome);
             rs = pst.executeQuery();
             while (rs.next()) {
-                id = rs.getInt("idFuncionarios");
+                
+                String id =rs.getString("nome");
+            
+                if(id.isEmpty())
+                {
+                    sucesso= false;
+                } else {
+                    f = new Funcionario();
+                    f.setId(rs.getInt("idFuncionarios"));
+                } 
             }
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
-            id = 0;
         } finally {
             try {
                 con.close();
@@ -57,7 +65,7 @@ public class FuncionarioDAO extends ConnectionDAO {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return id;
+        return f.getId();
     }
     
     public boolean buscarFuncionario(String nome) {
