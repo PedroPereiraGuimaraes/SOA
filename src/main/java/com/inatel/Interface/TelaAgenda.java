@@ -39,7 +39,12 @@ public class TelaAgenda extends javax.swing.JFrame {
         voltarCadastro = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPesquisa = new javax.swing.JList<>();
-        pesquisarAtendimento2 = new javax.swing.JButton();
+        excluirAtendimento = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listaPesquisa1 = new javax.swing.JList<>();
+        jLabel7 = new javax.swing.JLabel();
+        finalizarAtendimento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -90,14 +95,33 @@ public class TelaAgenda extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(listaPesquisa);
 
-        pesquisarAtendimento2.setBackground(new java.awt.Color(62, 190, 76));
-        pesquisarAtendimento2.setForeground(new java.awt.Color(255, 255, 255));
-        pesquisarAtendimento2.setText("Finalizar");
-        pesquisarAtendimento2.setToolTipText("Pesquisar");
-        pesquisarAtendimento2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pesquisarAtendimento2.addActionListener(new java.awt.event.ActionListener() {
+        excluirAtendimento.setBackground(new java.awt.Color(62, 190, 76));
+        excluirAtendimento.setForeground(new java.awt.Color(255, 255, 255));
+        excluirAtendimento.setText("Excluir");
+        excluirAtendimento.setToolTipText("Pesquisar");
+        excluirAtendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        excluirAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisarAtendimento2ActionPerformed(evt);
+                excluirAtendimentoActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Abertos");
+        jLabel6.setAlignmentY(0.0F);
+
+        jScrollPane2.setViewportView(listaPesquisa1);
+
+        jLabel7.setText("Finalizados");
+        jLabel7.setAlignmentY(0.0F);
+
+        finalizarAtendimento.setBackground(new java.awt.Color(62, 190, 76));
+        finalizarAtendimento.setForeground(new java.awt.Color(255, 255, 255));
+        finalizarAtendimento.setText("Finalizar");
+        finalizarAtendimento.setToolTipText("Pesquisar");
+        finalizarAtendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        finalizarAtendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarAtendimentoActionPerformed(evt);
             }
         });
 
@@ -112,21 +136,29 @@ public class TelaAgenda extends javax.swing.JFrame {
                         .addComponent(voltarCadastro))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pesquisarAtendimento2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(finalizarAtendimento)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(excluirAtendimento))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(jLabel1)
-                                                .addComponent(jLabel2))
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(nomePacienteAtendimento, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(pesquisaAgenda))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel5)
+                                                        .addComponent(jLabel1)
+                                                        .addComponent(jLabel2))
+                                                    .addGap(0, 0, Short.MAX_VALUE))
+                                                .addComponent(nomePacienteAtendimento, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(pesquisaAgenda))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,11 +176,19 @@ public class TelaAgenda extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomePacienteAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pesquisaAgenda))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pesquisarAtendimento2)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(excluirAtendimento)
+                    .addComponent(finalizarAtendimento))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,10 +208,15 @@ public class TelaAgenda extends javax.swing.JFrame {
         voltarTelaInicial();
     }//GEN-LAST:event_voltarCadastroActionPerformed
 
-    private void pesquisarAtendimento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarAtendimento2ActionPerformed
+    private void excluirAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirAtendimentoActionPerformed
         // TODO add your handling code here:
         deletarAtendimento();
-    }//GEN-LAST:event_pesquisarAtendimento2ActionPerformed
+    }//GEN-LAST:event_excluirAtendimentoActionPerformed
+
+    private void finalizarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarAtendimentoActionPerformed
+        // TODO add your handling code here:
+        finalizarAtendimento();
+    }//GEN-LAST:event_finalizarAtendimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,13 +263,22 @@ public class TelaAgenda extends javax.swing.JFrame {
         AtendimentoDAO a = new AtendimentoDAO();
         ArrayList<Atendimento> listaAtendimentos;
         listaAtendimentos = a.pesquisarAtendimento(nomePacienteAtendimento.getText());
-        String atendimentos[] = new String[listaAtendimentos.size()];
+        String atendimentosAbertos[] = new String[listaAtendimentos.size()];
+        String atendimentosFechados[] = new String[listaAtendimentos.size()];
         for(int i=0;i<listaAtendimentos.size();i++){
-            atendimentos[i] ="Id: " +
+            if("aberto".equals(listaAtendimentos.get(i).getSituacao())){
+                atendimentosAbertos[i] ="Id: " +
                     listaAtendimentos.get(i).getId() + " | Nome: " + nomePacienteAtendimento.getText() + " | Data: " + listaAtendimentos.get(i).getData() + " | Hora: " + 
                     listaAtendimentos.get(i).getHora() + " | Procedimento: " + listaAtendimentos.get(i).getProcedimento();
+            }else if("finalizado".equals(listaAtendimentos.get(i).getSituacao())){
+                atendimentosFechados[i] ="Id: " +
+                    listaAtendimentos.get(i).getId() + " | Nome: " + nomePacienteAtendimento.getText() + " | Data: " + listaAtendimentos.get(i).getData() + " | Hora: " + 
+                    listaAtendimentos.get(i).getHora() + " | Procedimento: " + listaAtendimentos.get(i).getProcedimento();
+            }
+            
         }
-        listaPesquisa.setListData(atendimentos);
+        listaPesquisa.setListData(atendimentosAbertos);
+        listaPesquisa1.setListData(atendimentosFechados);
     };
     
     public void deletarAtendimento(){
@@ -234,16 +288,29 @@ public class TelaAgenda extends javax.swing.JFrame {
         a.deletarAtendimento(id);
         pesquisarAtendimentos();
     }
+    
+    public void finalizarAtendimento(){
+        AtendimentoDAO a = new AtendimentoDAO();
+        String s = (String) listaPesquisa.getSelectedValue();
+        int id =  Integer. valueOf(s.substring(4, 5));
+        a.updateAtendimento(id);
+        pesquisarAtendimentos();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton excluirAtendimento;
+    private javax.swing.JButton finalizarAtendimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listaPesquisa;
+    private javax.swing.JList<String> listaPesquisa1;
     private javax.swing.JTextField nomePacienteAtendimento;
     private javax.swing.JButton pesquisaAgenda;
-    private javax.swing.JButton pesquisarAtendimento2;
     private javax.swing.JButton voltarCadastro;
     // End of variables declaration//GEN-END:variables
 }

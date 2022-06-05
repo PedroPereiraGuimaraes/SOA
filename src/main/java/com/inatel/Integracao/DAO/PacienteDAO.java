@@ -54,7 +54,6 @@ public class PacienteDAO extends ConnectionDAO {
                 } else {
                     p = new Paciente();
                     p.setId(rs.getInt("idPaciente"));
-                    System.out.println(p.getId());
                 } 
             }
         } catch (SQLException e) {

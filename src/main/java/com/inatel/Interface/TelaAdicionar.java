@@ -644,9 +644,6 @@ public class TelaAdicionar extends javax.swing.JFrame {
             else{
                JOptionPane.showMessageDialog(null,"Nome da empresa ou/e senha estão incorretos"); 
             }
-            
-            
-            
         } 
    }
 

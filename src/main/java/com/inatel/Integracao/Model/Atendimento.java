@@ -5,6 +5,7 @@ public class Atendimento {
     private int id;
     private int idPaciente;
     private int idFuncionario;
+    private String situacao;
     private String data;
     private String hora;
     private String procedimento;
@@ -23,6 +24,14 @@ public class Atendimento {
 
     public int getIdPaciente() {
         return idPaciente;
+    }
+    
+    public String getSituacao() {
+        return situacao;
+    }
+    
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
     
     public int getId() {
